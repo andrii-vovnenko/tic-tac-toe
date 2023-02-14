@@ -1,8 +1,13 @@
+import BoardPage from './pages/BoardPage';
+import { BoardProvider } from './context/BoardContext';
+
 function App() {
 
   return (
     <div className="App">
-      HELLO WORLD
+      <BoardProvider>
+        <BoardPage />
+      </BoardProvider>
     </div>
   )
 }
