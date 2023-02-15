@@ -121,7 +121,7 @@ export function BoardProvider({ children }) {
   useEffect(() => {
     if (winner) return;
     if (isCPUNext) {
-      setTimeout(cPUPlay, 2000);
+      setTimeout(cPUPlay, 500);
     } 
   }, [isCPUNext]);
 

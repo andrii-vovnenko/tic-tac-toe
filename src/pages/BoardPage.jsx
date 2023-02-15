@@ -3,7 +3,7 @@ import RowComponent from '../components/RowComponent';
 import { useBoard } from '../context/BoardContext';
 
 const TicTacToe = () => {
-  const { board, winner, isCPUNext, playFn, playAgainFn } = useBoard();
+  const { board, winner, isCPUNext, playAgainFn } = useBoard();
   
   function displayWinner() {
     if (winner === "draw") {
@@ -30,10 +30,10 @@ const TicTacToe = () => {
       }}>
         {board.map((row, rowIdx) => (
           <RowComponent>
-            {row.map((cell, cellIdx) => (
+            {row.map((_, cellIdx) => (
               <CellComponent
-                action={() => playFn(rowIdx, cellIdx)}
-                value={cell}
+                row={rowIdx}
+                cell={cellIdx}
               />
             ))}
           </RowComponent>
@@ -41,9 +41,7 @@ const TicTacToe = () => {
       </div>
       {winner && <h2>{displayWinner()}</h2>}
       {winner && (
-        <button
-          // className={styles.video_game_button}
-        onClick={playAgainFn}>
+        <button onClick={playAgainFn}>
           Play Again
         </button>
       )}
